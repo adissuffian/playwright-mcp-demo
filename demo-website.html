@@ -1,0 +1,123 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Demo Website for Playwright MCP Testing</title>
+    <style>
+        body {
+            font-family: Arial, sans-serif;
+            max-width: 800px;
+            margin: 0 auto;
+            padding: 20px;
+            background-color: #f5f5f5;
+        }
+        .container {
+            background: white;
+            padding: 30px;
+            border-radius: 10px;
+            box-shadow: 0 2px 10px rgba(0,0,0,0.1);
+        }
+        h1 {
+            color: #2c3e50;
+            text-align: center;
+        }
+        .feature {
+            margin: 20px 0;
+            padding: 15px;
+            background: #ecf0f1;
+            border-radius: 5px;
+        }
+        button {
+            background: #3498db;
+            color: white;
+            padding: 10px 20px;
+            border: none;
+            border-radius: 5px;
+            cursor: pointer;
+        }
+        button:hover {
+            background: #2980b9;
+        }
+        #dynamic-content {
+            margin-top: 20px;
+            padding: 10px;
+            background: #e8f6f3;
+            border-radius: 5px;
+            display: none;
+        }
+        .form-section {
+            margin: 20px 0;
+        }
+        input, select {
+            width: 100%;
+            padding: 8px;
+            margin: 5px 0;
+            border: 1px solid #ddd;
+            border-radius: 3px;
+        }
+    </style>
+</head>
+<body>
+    <div class="container">
+        <h1>Welcome to Demo Website</h1>
+        
+        <div class="feature">
+            <h3>Static Content Test</h3>
+            <p>This is some static text that can be found by Playwright tests.</p>
+            <p id="unique-text">Unique identifier text for testing</p>
+        </div>
+
+        <div class="feature">
+            <h3>Interactive Elements</h3>
+            <button onclick="showDynamicContent()" id="show-button">Click to Show Dynamic Content</button>
+            <div id="dynamic-content">
+                <p>This content appeared after clicking the button!</p>
+            </div>
+        </div>
+
+        <div class="feature form-section">
+            <h3>Form Elements</h3>
+            <form id="demo-form">
+                <input type="text" placeholder="Enter your name" id="name-input">
+                <select id="country-select">
+                    <option value="">Select Country</option>
+                    <option value="us">United States</option>
+                    <option value="uk">United Kingdom</option>
+                    <option value="ca">Canada</option>
+                </select>
+                <button type="submit">Submit Form</button>
+            </form>
+        </div>
+
+        <div class="feature">
+            <h3>Navigation Links</h3>
+            <a href="#section1" id="link1">Section 1</a> |
+            <a href="#section2" id="link2">Section 2</a> |
+            <a href="https://playwright.dev" target="_blank" id="external-link">Playwright Docs</a>
+        </div>
+
+        <div class="feature">
+            <h3 id="section1">Section 1</h3>
+            <p>Content for section 1</p>
+        </div>
+
+        <div class="feature">
+            <h3 id="section2">Section 2</h3>
+            <p>Content for section 2</p>
+        </div>
+    </div>
+
+    <script>
+        function showDynamicContent() {
+            document.getElementById('dynamic-content').style.display = 'block';
+            document.getElementById('show-button').textContent = 'Content Shown!';
+        }
+
+        document.getElementById('demo-form').addEventListener('submit', function(e) {
+            e.preventDefault();
+            alert('Form submitted successfully!');
+        });
+    </script>
+</body>
+</html>
