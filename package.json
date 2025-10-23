@@ -1,0 +1,35 @@
+{
+  "name": "playwright-mcp-server",
+  "version": "1.0.0",
+  "description": "Playwright-powered MCP server for browser automation and testing",
+  "type": "module",
+  "main": "build/playwright-mcp-server.js",
+  "scripts": {
+    "build": "tsc && chmod 755 build/playwright-mcp-server.js",
+    "start": "npm run build && node build/playwright-mcp-server.js",
+    "start:headed": "HEADED_MODE=true npm run build && node build/playwright-mcp-server.js",
+    "test": "npm run build && node test-server.mjs",
+    "test:headed": "npm run build && node test-headed.mjs",
+    "test:integration": "npm run build && node test-integration.mjs",
+    "test:external": "npm run build && node test-external.mjs",
+    "install:browsers": "npx playwright install"
+  },
+  "keywords": [
+    "playwright",
+    "mcp",
+    "model-context-protocol",
+    "browser-automation",
+    "testing",
+    "web-testing"
+  ],
+  "dependencies": {
+    "@modelcontextprotocol/sdk": "latest",
+    "playwright": "latest",
+    "dotenv": "latest",
+    "zod": "latest"
+  },
+  "devDependencies": {
+    "typescript": "latest",
+    "@types/node": "latest"
+  }
+}
