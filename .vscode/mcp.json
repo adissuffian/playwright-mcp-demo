@@ -1,0 +1,9 @@
+{
+  "servers": {
+    "playwright-mcp-server": {
+      "type": "stdio",
+      "command": "node",
+      "args": ["/Users/adissuffian/playwright-mcp-demo/build/playwright-mcp-server.js"]
+    }
+  }
+}
